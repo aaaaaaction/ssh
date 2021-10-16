@@ -17,6 +17,7 @@ jobs:
     - name: ssh
       run: |
         cd /home
+        ls
         mkdir my
         cd my
         wget https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb
