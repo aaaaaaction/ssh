@@ -17,9 +17,11 @@ jobs:
     - name: ssh
       run: |
         cd /home
-        sudo wget https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb
+        mkdir my
+        cd my
+        wget https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb
         sudo dpkg -i cloudflared-linux-amd64.deb
-        sudo echo 123 >> ssh.txt
+        
         sudo cloudflared tunnel --url tcp://127.0.0.1:22 >> ssh.txt
 
     - name: ssh1
