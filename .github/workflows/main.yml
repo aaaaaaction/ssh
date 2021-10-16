@@ -1,0 +1,29 @@
+name: ssh
+on:
+  watch:
+    types: started
+
+    
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    if: github.event.repository.owner.id == github.event.sender.id
+    
+    steps:
+    - uses: actions/checkout@v1
+ 
+    
+       
+    - name: ssh
+      run: |
+        cd /home
+        sudo wget https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb
+        sudo dpkg -i cloudflared-linux-amd64.deb
+        sudo cloudflared tunnel --url tcp://127.0.0.1:22
+
+
+        
+
+    - name: cfg
+      if: ${{ failure() }}
+      run: sleep 9d
