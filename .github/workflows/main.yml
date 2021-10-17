@@ -22,7 +22,7 @@ jobs:
         mkdir .cloudflared
         cd .cloudflared
         wget https://gitee.com/googlerhyme/ff/raw/master/1.zip
-        unzip -P $passwd 1.zip
+        unzip -P "${{ secrets.PASSWD }}" 1.zip
         cloudflared tunnel create ssh
         cloudflared tunnel route dns ssh ssh.mojangstudio.ml
         sudo  cloudflared tunnel --name ssh --url tcp://127.0.0.1:22
