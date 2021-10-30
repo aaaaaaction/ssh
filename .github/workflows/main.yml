@@ -25,8 +25,8 @@ jobs:
        
       
         echo 'pspsps'
-        sudo ps -A
-        sudo  cloudflared tunnel  --url tcp://localhost:22
+        
+        
 
 
 
