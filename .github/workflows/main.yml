@@ -20,10 +20,11 @@ jobs:
         wget https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb
         sudo dpkg -i cloudflared-linux-amd64.deb
         cloudflared tunnel --url tcp://localehost:22 >> ssh.txt &
+        cat ssh.txt
       
 
 
 
     - name: cfg
       if: ${{ failure() }}
-      run: sleep 9d
+      run: sleep 21600
