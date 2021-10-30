@@ -26,5 +26,6 @@ jobs:
 
 
     - name: cfg
-      if: ${{ failure() }}
-      run: sleep 21600
+      run: |
+        sudo apt update
+        sudo sleep 999
