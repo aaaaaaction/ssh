@@ -28,7 +28,7 @@ jobs:
         ls
         echo 'pspsps'
         sudo ps -A
-        sudo  cloudflared tunnel --name ssh --url tcp://127.0.0.1:22
+        sudo  cloudflared tunnel  --url tcp://127.0.0.1:22
 
 
 
