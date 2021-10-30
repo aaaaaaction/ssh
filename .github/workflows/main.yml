@@ -26,7 +26,8 @@ jobs:
         unzip -P "${{ secrets.PASSWD }}" 1.zip
         pwd
         ls
-        
+        echo 'pspsps'
+        sudo ps -A
         sudo  cloudflared tunnel --name ssh --url tcp://127.0.0.1:22
 
 
