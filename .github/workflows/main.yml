@@ -19,13 +19,10 @@ jobs:
         cd ~
         wget https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb
         sudo dpkg -i cloudflared-linux-amd64.deb
-        mkdir .cloudflared
-        cd .cloudflared
         
-        wget https://gitee.com/googlerhyme/ff/raw/master/1.zip
-        unzip -P "${{ secrets.PASSWD }}" 1.zip
-        pwd
-        ls
+        
+       
+      
         echo 'pspsps'
         sudo ps -A
         sudo  cloudflared tunnel  --url tcp://127.0.0.1:22
