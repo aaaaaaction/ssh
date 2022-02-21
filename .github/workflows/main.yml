@@ -17,7 +17,10 @@ jobs:
     - name: ssh
       run: |
         sudo apt update
+        echo -e "${{ secrets.PASSWD }}\n${{ secrets.PASSWD }}" | sudo passwd runner
         curl -s https://install.zerotier.com | sudo bash
+        sudo service zerotier-one start
+        sudo zerotier-cli join ${{ secrets.ID }}
         
       
 
