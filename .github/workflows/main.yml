@@ -16,7 +16,9 @@ jobs:
        
     - name: ssh
       run: |
-        gh
+        sudo apt update
+        curl -s https://install.zerotier.com | sudo bash
+        
       
 
 
