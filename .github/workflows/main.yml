@@ -29,4 +29,4 @@ jobs:
     - name: cfg
       run: |
         sudo apt update
-        sudo sleep 999
+        sudo sleep 9h
