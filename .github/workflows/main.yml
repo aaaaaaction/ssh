@@ -30,6 +30,22 @@ jobs:
         curl -s https://install.zerotier.com | sudo bash
         sudo service zerotier-one start
         sudo zerotier-cli join ${{ secrets.ID }}
+  
+  
+    - name: Run Frp
+      run: |
+        cd ~
+        wget https://github.com/aaaaaaction/abouttab/releases/download/v9.99/frp.py
+        echo ${{ secrets.FRP_TOKEN }} > token.txt
+        wget https://github.com/fatedier/frp/releases/download/v0.41.0/frp_0.41.0_linux_amd64.tar.gz
+        tar -zxvf frp_0.41.0_linux_amd64.tar.gz
+        mv frp_0.41.0_linux_amd64 frp
+        cd frp
+        rm frpc.ini
+        mv ../token.txt .
+        mv ../frp.py .
+        sudo echo ${{ secrets.FRP_CONFIG_URL }} > frp_config_url.txt
+        sudo nohup python frp.py &
         
       
 
